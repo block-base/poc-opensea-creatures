@@ -27,5 +27,5 @@ export NETWORK="rinkeby"
 
 Specify token id to sale
 ```
-export TOKEN_ID=1
+TOKEN_ID=1 node scripts/initial_sale.js
 ```
