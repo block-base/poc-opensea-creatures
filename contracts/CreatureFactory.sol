@@ -60,11 +60,11 @@ contract CreatureFactory is FactoryERC721, Ownable {
 
     function mint(uint256 _optionId, address _toAddress) public {
         // Must be sent from the owner proxy or owner.
-        // ProxyRegistry proxyRegistry = ProxyRegistry(proxyRegistryAddress);
-        // assert(
-        //     address(proxyRegistry.proxies(owner())) == msg.sender ||
-        //         owner() == msg.sender
-        // );
+        ProxyRegistry proxyRegistry = ProxyRegistry(proxyRegistryAddress);
+        assert(
+            address(proxyRegistry.proxies(owner())) == msg.sender ||
+                owner() == msg.sender
+        );
         require(canMint(_optionId));
         Creature openSeaCreature = Creature(nftAddress);
         openSeaCreature.mintTo(_toAddress);
